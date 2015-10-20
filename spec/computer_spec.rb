@@ -30,7 +30,7 @@ describe Computer do
 
   describe "#score" do
     it "returns 1 if the computer has won in the given board state" do
-      expect(computer.score(board, board.state)).to be_a(Integer)
+      expect(computer.score_spot(board, board.state)).to be_a(Integer)
     end
   end
 end
