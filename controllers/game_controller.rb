@@ -7,65 +7,82 @@ class GameController
   def initialize
     @game_view = GameView.new
     set_game_type
-  end
-
-  def set_game_type
-    @game_view.clear_screen
-    @game_view.display_opening_message
-
-    case @game_view.game_type
-    when '1'
-      @player_one = Player.new
-      @player_two = Computer.new
-      set_player_marker(@player_one, @player_two.marker)
-    when '2'
-      @player_one = Player.new
-      set_player_marker(@player_one)
-      @player_two = Player.new('2')
-      set_player_marker(@player_two, @player_one.marker)
-    when '3'
-      @player_one = Computer.new
-      @player_two = Computer.new("O")
-    end
-
     @board = Board.new(@player_two.marker, @player_one.marker)
   end
 
-  def start
-    @game_view.clear_screen
-    @game_view.display_opening_message
-    if @player_one.is_a?(Player) || @player_two.is_a?(Player)
-      @game_view.prompt_order_choice
-      @player_one.choose_turn
-      @player_one.turn == '1' ? @player_two.turn = '2' : @player_two.turn = '1'
+  def set_game_type
+    @game_view.display_opening_screen
+
+    case @game_view.select_game_type
+    when '1'
+      create_player_vs_computer_game
+    when '2'
+      create_two_player_game
+    when '3'
+      create_two_computer_game
     end
+  end
+
+  def create_player_vs_computer_game
+    @player_one = Player.new
+    @player_two = Computer.new
+    set_player_marker(@player_one, @player_two.marker)
+  end
+
+  def create_two_player_game
+    @player_one = Player.new
+    set_player_marker(@player_one)
+    @player_two = Player.new('2')
+    set_player_marker(@player_two, @player_one.marker)
+  end
+
+  def create_two_computer_game
+    @player_one = Computer.new
+    @player_two = Computer.new("O")
+  end
+
+  def start_game
+    @game_view.display_opening_screen
+    prompt_turn_selection
     @game_view.display_header(@player_one.marker, @player_two.marker)
     @game_view.draw_board(@board.state)
     play_game
   end
 
+  def prompt_turn_selection
+    if @player_one.is_a?(Player) || @player_two.is_a?(Player)
+      @game_view.prompt_order_choice
+      @player_one.choose_turn
+      @player_one.turn == '1' ? @player_two.turn = '2' : @player_two.turn = '1'
+    end
+  end
+
   def set_player_marker(player, opponent_marker = nil)
     player_marker = @game_view.player_marker_entry(player)
-    while player.invalid_marker?(player_marker, opponent_marker)
-      @game_view.invalid_marker_message
-      player_marker = @game_view.player_marker_entry(player)
-    end
+    validate_player_marker(player_marker, opponent_marker)
     player.marker = player_marker
   end
 
   def play_game
     if @player_one.turn == '1'
-      first = @player_one
-      second = @player_two
+      first_turn = @player_one
+      second_turn = @player_two
     else
-      first = @player_two
-      second = @player_one
+      first_turn = @player_two
+      second_turn = @player_one
     end
 
     until @board.winner(@board.state) || @board.tie?(@board.state)
-      play_round(first, second)
+      play_round(first_turn, second_turn)
     end
     end_game
+  end
+
+  def validate_player_marker(player_marker, opponent_marker)
+    while Player.invalid_marker?(player_marker, opponent_marker)
+      @game_view.invalid_marker_message
+      player_marker = @game_view.player_marker_entry(player)
+    end
   end
 
   def play_round(first_player, second_player)
@@ -99,7 +116,7 @@ class GameController
   end
 
   def player_move(player)
-    @game_view.give_instructions
+    @game_view.display_move_instructions
     choice = player.choose_spot(@board.state)
     until choice
       @game_view.incorrect_placement_error

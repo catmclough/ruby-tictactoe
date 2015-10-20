@@ -14,7 +14,7 @@ class Computer
 
   def minimax(board, board_state)
     if board.winner(board_state) || board.tie?(board_state)
-      return score(board, board_state)
+      return score_spot(board, board_state)
     end
 
     scores = []
@@ -31,6 +31,7 @@ class Computer
     if board.active_player(board_state, turn) == @marker
       max_score = scores[0]
       max_score_index = 0
+
       scores.each_with_index do |score, index|
         if score > max_score
           max_score = score
@@ -43,6 +44,7 @@ class Computer
     else
       min_score = scores[0]
       min_score_index = 0
+
       scores.each_with_index do |score, index|
         if score < min_score
           min_score = score
@@ -55,7 +57,7 @@ class Computer
     end
   end
 
-  def score(board, board_state)
+  def score_spot(board, board_state)
     if board.winner(board_state) == @marker
       return 1
     elsif board.winner(board_state)
