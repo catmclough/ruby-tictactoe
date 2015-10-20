@@ -1,10 +1,11 @@
 class GameView
 
-  def display_opening_message
+  def display_opening_screen
+    clear_screen
     puts "Welcome to my Tic Tac Toe game!"
   end
 
-  def game_type
+  def select_game_type
     puts "Please choose a game type:"
     puts "1. You vs. Computer"
     puts "2. 2-Player"
@@ -12,7 +13,11 @@ class GameView
     type = gets.chomp
   end
 
-  def give_instructions
+  def clear_screen
+    print "\e[2J"
+  end
+
+  def display_move_instructions
     print "Enter the number of the spot you'd like to select: "
   end
 
@@ -22,7 +27,7 @@ class GameView
   end
 
   def display_header(marker_one, marker_two)
-    display_opening_message
+    display_opening_screen
     display_markers(marker_one, marker_two)
   end
 
@@ -76,9 +81,5 @@ class GameView
     puts "Game Over."
     draw_board(state)
     puts "#{winner} has won the game."
-  end
-
-  def clear_screen
-    print "\e[2J"
   end
 end

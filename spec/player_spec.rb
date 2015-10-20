@@ -36,19 +36,19 @@ describe Player do
   describe "#invalid_marker?" do
     context "entry is a number" do
       it "returns true" do
-        expect(player.invalid_marker?("2")).to eq(true)
+        expect(Player.invalid_marker?("2")).to eq(true)
       end
     end
 
     context "entry is less than one character in length" do
       it "returns true" do
-        expect(player.invalid_marker?("")).to eq(true)
+        expect(Player.invalid_marker?("")).to eq(true)
       end
     end
 
     context "entry is more than one character in length" do
       it "returns true" do
-        expect(player.invalid_marker?("cat")).to eq(true)
+        expect(Player.invalid_marker?("cat")).to eq(true)
       end
     end
 
@@ -56,7 +56,7 @@ describe Player do
       it "returns true" do
         opponent_marker = "X"
         player_choice = opponent_marker
-        expect(player.invalid_marker?(player_choice, opponent_marker)).to eq(true)
+        expect(Player.invalid_marker?(player_choice, opponent_marker)).to eq(true)
       end
     end
   end
@@ -64,13 +64,13 @@ describe Player do
   describe "#invalid_move?" do
     context "entry does not correspond to a position on the board" do
       it "returns true" do
-        expect(player.invalid_move?("9", test_board.state)).to eq(true)
+        expect(Player.invalid_move?("9", test_board.state)).to eq(true)
       end
     end
 
     context "there is already a marker at the given position on the board" do
       it "returns true" do
-        expect(player.invalid_move?("0", test_board.state)).to eq(true)
+        expect(Player.invalid_move?("0", test_board.state)).to eq(true)
       end
     end
   end
