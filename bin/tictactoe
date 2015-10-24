@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'tictactoe'
+
+game_controller = TicTacToe::GameController.new(STDOUT)
+game_controller.start_game
+game_controller.choose_type
+game_controller.set_markers
+
+

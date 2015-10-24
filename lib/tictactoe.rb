@@ -1,0 +1,8 @@
+require 'tictactoe/board'
+require 'tictactoe/computer'
+require 'tictactoe/game_controller'
+require 'tictactoe/classic_game'
+# require 'tictactoe/game_view'
+require 'tictactoe/player'
+# require 'tictactoe/two_computer_game'
+# require 'tictactoe/two_player_game'
