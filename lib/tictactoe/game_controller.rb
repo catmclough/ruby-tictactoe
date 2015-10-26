@@ -59,23 +59,13 @@ module TicTacToe
     end
 
     def choose_player_marker(player)
-      if player == 1
-        if @game.player_one.is_a?(TicTacToe::Player)
+      if (player == 1 && @game.player_one.is_a?(TicTacToe::Player)) || (player == 2 && @game.player_two.is_a?(TicTacToe::Player))
           marker_choice = gets.chomp
           until @game.set_player_marker(player, marker_choice)
             invalid_marker_choice
-            @marker_choice = gets.chomp
+            marker_choice = gets.chomp
           end
         end
-      else
-        if @game.player_two.is_a?(TicTacToe::Player)
-          marker_choice = gets.chomp
-          until @game.set_player_marker(player, marker_choice)
-            invalid_marker_choice
-            @marker_choice = gets.chomp
-          end
-        end
-      end
     end
 
     def invalid_marker_choice
