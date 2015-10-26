@@ -29,8 +29,8 @@ module TicTacToe
     end
 
     def display_player_markers
-      @view.puts "Player One: #{@player_one.marker}"
-      @view.puts "Player Two: #{@player_two.marker}"
+      @view.puts "Player One: #{@game.first_turn_player.marker}"
+      @view.puts "Player Two: #{@game.second_turn_player.marker}"
     end
 
     def draw_board(board_state)
@@ -41,16 +41,8 @@ module TicTacToe
     end
 
     def play_game
-      if @player_one.turn == '1'
-        first_turn = @player_one
-        second_turn = @player_two
-      else
-        first_turn = @player_two
-        second_turn = @player_one
-      end
-
       until @board.winner(@board.state) || @board.tie?(@board.state)
-        play_round(first_turn, second_turn)
+        play_round(@game.first_turn_player, @game.second_turn_player)
       end
       end_game
     end

@@ -2,10 +2,6 @@ module TicTacToe
   class Player
     attr_accessor :marker, :turn
 
-    def initialize(turn = '1')
-      @turn = turn
-    end
-
     def choose_turn
       turn_choice = gets.chomp
       if turn_choice == '2'

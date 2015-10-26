@@ -23,11 +23,11 @@ module TicTacToe
 
     def set_turns(choice)
       if choice == @player_one.marker
-        @player_one.turn == '1'
-        @player_two.turn == '2'
+        @player_one.turn = '1'
+        @player_two.turn = '2'
       else
-        @player_two.turn == '1'
-        @player_one.turn == '2'
+        @player_two.turn = '1'
+        @player_one.turn = '2'
       end
     end
 
