@@ -17,10 +17,10 @@ def view
 end
 
 Given(/^I am not yet playing$/) do
+  @game_creator = TicTacToe::GameCreator.new(view)
 end
 
 When(/^I run the program$/) do
-  @game_creator = TicTacToe::GameCreator.new(view)
   @game_creator.opening_message
 end
 

@@ -90,13 +90,15 @@ module TicTacToe
     end
 
     def choose_turns
-      choice = gets.chomp
-      until @game.valid_turn_choice?(choice)
-        invalid_turn_choice_message
-        prompt_turn_selection
+      unless @game.is_a?(TicTacToe::TwoComputerGame)
         choice = gets.chomp
+        until @game.valid_turn_choice?(choice)
+          invalid_turn_choice_message
+          prompt_turn_selection
+          choice = gets.chomp
+        end
+        set_turn(choice)
       end
-      set_turn(choice)
     end
 
     def set_turn(choice)

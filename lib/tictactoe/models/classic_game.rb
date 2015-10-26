@@ -24,5 +24,14 @@ module TicTacToe
       @player_one.turn = player_one_turn
       @player_one.turn == '1' ? @player_two.turn = '2' : @player_two.turn = '1'
     end
+
+    def first_turn_player
+      @player_one.turn == '1' ? @player_one : @player_two
+    end
+
+    def second_turn_player
+      @player_one.turn == '2' ? @player_one : @player_two
+    end
+
   end
 end

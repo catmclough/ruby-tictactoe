@@ -2,9 +2,10 @@ module TicTacToe
   class Board
     attr_reader :state
 
-    def initialize(player_one_marker, player_two_marker, state = (0..8).to_a)
+    def initialize(player_one_marker, player_two_marker, game, state = (0..8).to_a)
       @player_one_marker = player_one_marker
       @player_two_marker = player_two_marker
+      @game = game
       @state = state
     end
 
@@ -54,6 +55,14 @@ module TicTacToe
       sliced_board
     end
 
+    def active_player(board_state)
+      if board_state.count(@game.first_turn_player.marker) <= board_state.count(@game.second_turn_player.marker)
+        return @game.first_turn_player.marker
+      else
+        return @game.second_turn_player.marker
+      end
+    end
+
     def tie?(board)
       !winner(board) && full?
     end
@@ -64,14 +73,6 @@ module TicTacToe
 
     def get_open_spaces(board)
       board.select { |s| s != @player_one_marker && s != @player_two_marker }
-    end
-
-    def active_player(board_state, first_turn_player, second_turn_player)
-      if board_state.count(first_turn_player.marker) <= board_state.count(second_turn_player.marker)
-        return first_turn_player.marker
-      else
-        return second_turn_player.marker
-      end
     end
   end
 end

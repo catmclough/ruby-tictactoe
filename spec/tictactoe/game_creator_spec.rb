@@ -3,6 +3,7 @@ require 'spec_helper'
 module TicTacToe
   describe GameCreator do
     let(:view) { double('view').as_null_object }
+    # let(:game) { ClassicGame.new }
     let(:constructor) { GameCreator.new(view) }
 
     describe "#start_game" do

@@ -6,7 +6,7 @@ module TicTacToe
       @game = game
       @player_one = game.player_one
       @player_two = game.player_two
-      @board = Board.new(@player_one.marker, @player_two.marker)
+      @board = Board.new(@player_one.marker, @player_two.marker, @game)
     end
 
     def start_game
@@ -58,7 +58,6 @@ module TicTacToe
     def play_round(active_player, opponent)
       2.times do
         unless over?
-          # display_round_screen
           @view.puts "#{active_player.marker}, you're up."
 
           if active_player.is_a?(Player)
