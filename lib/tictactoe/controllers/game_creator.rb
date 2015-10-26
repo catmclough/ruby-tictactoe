@@ -4,7 +4,6 @@ module TicTacToe
 
     def initialize(view)
       @view = view
-      # @board = Board.new(@player_two.marker, @player_one.marker)
     end
 
     def opening_message
@@ -74,14 +73,6 @@ module TicTacToe
     def invalid_marker_choice
       @view.puts "Invalid entry. Marker must be one character and cannot be a number or the same as your opponent's (FYI: The computer will always be 'X')."
     end
-
-    # def start_game
-    #   @view.display_opening_screen
-    #   prompt_turn_selection
-    #   @view.display_header(@player_one.marker, @player_two.marker)
-    #   @view.draw_board(@board.state)
-    #   play_game
-    # end
 
     def set_player_turns
       prompt_turn_selection

@@ -1,15 +1,25 @@
 module TicTacToe
   class Computer
-    attr_reader :best_move, :marker
-    attr_accessor :turn
+    attr_reader :best_move, :marker, :turn
+    attr_accessor :opponent
 
     def initialize(marker = 'X')
+      @opponent = opponent
       @marker = marker
     end
 
-    def choose_move(board, state)
+    def turn=(turn)
+      @turn = turn
+      if turn == '1'
+        @first_turn_player, @second_turn_player = self, @opponent
+      else
+        @second_turn_player, @first_turn_player = self, @opponent
+      end
+    end
+
+    def choose_move(board)
       @best_move = nil
-      minimax(board, state)
+      minimax(board, board.state)
       @best_move
     end
 
@@ -24,12 +34,12 @@ module TicTacToe
 
       available_spaces.each do |space|
         possible_board_state = board_state.dup
-        possible_board_state[space] = board.active_player(possible_board_state, turn)
+        possible_board_state[space] = board.active_player(possible_board_state, @first_turn_player, @second_turn_player)
         scores << minimax(board, possible_board_state).to_i
         moves << space
       end
 
-      if board.active_player(board_state, turn) == @marker
+      if board.active_player(board_state, @first_turn_player, @second_turn_player) == @marker
         max_score = scores[0]
         max_score_index = 0
 

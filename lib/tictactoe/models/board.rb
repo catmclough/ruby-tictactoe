@@ -66,19 +66,11 @@ module TicTacToe
       board.select { |s| s != @player_one_marker && s != @player_two_marker }
     end
 
-    def active_player(board_state, player_one_turn)
-      if player_one_turn == '1'
-        if board_state.count(@player_one_marker) <= board_state.count(@player_two_marker)
-          return @player_one_marker
-        else
-          return @player_two_marker
-        end
+    def active_player(board_state, first_turn_player, second_turn_player)
+      if board_state.count(first_turn_player.marker) <= board_state.count(second_turn_player.marker)
+        return first_turn_player.marker
       else
-        if board_state.count(@player_one_marker) < board_state.count(@player_two_marker)
-          return @player_one_marker
-        else
-          return @player_two_marker
-        end
+        return second_turn_player.marker
       end
     end
   end
