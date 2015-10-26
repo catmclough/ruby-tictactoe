@@ -1,6 +1,6 @@
 require 'tictactoe/board'
 require 'tictactoe/computer'
-require 'tictactoe/game_controller'
+require 'tictactoe/controllers/game_creator'
 require 'tictactoe/classic_game'
 require 'tictactoe/player'
 require 'tictactoe/two_computer_game'

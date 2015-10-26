@@ -14,5 +14,14 @@ module TicTacToe
         return false
       end
     end
+
+    def valid_turn_choice?(choice)
+      choice == '1' || choice == '2' ? true : false
+    end
+
+    def set_turns(player_one_turn)
+      @player_one.turn == player_one_turn
+    end
+
   end
 end

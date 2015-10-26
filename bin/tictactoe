@@ -2,7 +2,8 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'tictactoe'
 
-game_controller = TicTacToe::GameController.new(STDOUT)
-game_controller.start_game
+game_controller = TicTacToe::GameCreator.new(STDOUT)
+game_controller.opening_message
 game_controller.choose_type
 game_controller.set_markers
+game_controller.set_player_turns

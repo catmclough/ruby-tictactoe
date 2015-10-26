@@ -1,11 +1,13 @@
 module TicTacToe
-  class GameController
+  class GameCreator
+    attr_reader :game
+
     def initialize(view)
       @view = view
       # @board = Board.new(@player_two.marker, @player_one.marker)
     end
 
-    def start_game
+    def opening_message
       clear_screen
       @view.puts "Welcome to my Tic Tac Toe game!"
       game_type_options
@@ -63,6 +65,7 @@ module TicTacToe
           marker_choice = gets.chomp
           until @game.set_player_marker(player, marker_choice)
             invalid_marker_choice
+            prompt_player_marker(player)
             marker_choice = gets.chomp
           end
         end
@@ -80,19 +83,38 @@ module TicTacToe
     #   play_game
     # end
 
-    # def prompt_turn_selection
-    #   if @player_one.is_a?(Player) || @player_two.is_a?(Player)
-    #     @view.prompt_order_choice
-    #     @player_one.choose_turn
-    #     @player_one.turn == '1' ? @player_two.turn = '2' : @player_two.turn = '1'
-    #   end
-    # end
+    def set_player_turns
+      prompt_turn_selection
+      choose_turns
+    end
 
-    # def set_player_marker(player, opponent_marker = nil)
-    #   player_marker = @view.player_marker_entry(player)
-    #   validate_player_marker(player_marker, opponent_marker)
-    #   player.marker = player_marker
-    # end
+    def prompt_turn_selection
+      if @game.player_one.is_a?(Player)
+        if @game.player_two.is_a?(Player)
+          @view.print "Enter the marker of the player who will go first: "
+        else
+          @view.print "Would you like to go first or second? (Enter 1 or 2): "
+        end
+      end
+    end
+
+    def choose_turns
+      choice = gets.chomp
+      until @game.valid_turn_choice?(choice)
+        invalid_turn_choice_message
+        prompt_turn_selection
+        choice = gets.chomp
+      end
+      set_turn(choice)
+    end
+
+    def set_turn(choice)
+      @game.set_turns(choice)
+    end
+
+    def invalid_turn_choice_message
+      @view.puts"Invalid Turn Choice."
+    end
 
     def play_game
       if @player_one.turn == '1'
@@ -108,13 +130,6 @@ module TicTacToe
       end
       end_game
     end
-
-    # def validate_player_marker(player_marker, opponent_marker)
-    #   while Player.invalid_marker?(player_marker, opponent_marker)
-    #     @view.invalid_marker_message
-    #     player_marker = @view.player_marker_entry(player)
-    #   end
-    # end
 
     def play_round(first_player, second_player)
       @view.clear_screen

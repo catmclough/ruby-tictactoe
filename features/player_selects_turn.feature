@@ -2,7 +2,7 @@ Feature: player selects turn
 
 As a player
     I want to select my turn
-    So that I cand determine the order of the rounds
+    So that I can determine the order of the rounds
 
     Scenario: select turn in game between player and computer
       Given I am not yet playing

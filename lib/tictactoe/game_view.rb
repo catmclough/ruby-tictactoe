@@ -25,10 +25,6 @@ module TicTacToe
       puts
     end
 
-    def prompt_order_choice
-      print "Player 1, would you like to go first or second? (Enter '1' for first, '2' for second): "
-    end
-
     def draw_board(board_state)
       board_state.each_with_index do |mark, i|
         print "|_#{mark}_"
