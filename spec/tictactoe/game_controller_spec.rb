@@ -25,5 +25,41 @@ module TicTacToe
         end
       end
     end
+
+    describe "#prompt_player_marker" do
+      context "user has selected to play against computer" do
+        before { game.create_new_game('1') }
+        it "prompts player one to select a marker" do
+          expect(view).to receive(:print).with("Player 1 - Choose your marker: ")
+          game.prompt_player_marker(1)
+        end
+
+        it "deos not prompt player two to select a marker" do
+          expect(view).not_to receive(:print).with("Player 2 - Choose your marker: ")
+          game.prompt_player_marker(2)
+        end
+      end
+
+      context "user has selected to play against another person" do
+        before { game.create_new_game('2') }
+        it "prompts player one to select a marker" do
+          expect(view).to receive(:print).with("Player 1 - Choose your marker: ")
+          game.prompt_player_marker(1)
+        end
+
+        it "prompts player two to select a marker" do
+          expect(view).to receive(:print).with("Player 2 - Choose your marker: ")
+          game.prompt_player_marker(2)
+        end
+      end
+
+      context "user has selected to have two computers play against eachother" do
+        before { game.create_new_game('3') }
+        it "does not prompt either player to select a marker" do
+          expect(view).not_to receive(:print).with("Player 1 - Choose your marker: ")
+          game.prompt_player_marker(1)
+        end
+      end
+    end
   end
 end

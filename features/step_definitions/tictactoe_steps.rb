@@ -25,17 +25,17 @@ When(/^I run the program$/) do
 end
 
 When(/^I have selected to play a player vs\. computer game$/) do
-  game = TicTacToe::GameController.new(view)
-  game.set_game_type('1')
-  game.set_player_markers
+  game_controller = TicTacToe::GameController.new(view)
+  game_controller.create_new_game('1')
+  game_controller.prompt_player_marker(1)
 end
 
 When(/^I have selected to play a two\-player game$/) do
-  game = TicTacToe::GameController.new(view)
-  game.set_game_type('2')
-  game.set_player_markers
+  game_controller = TicTacToe::GameController.new(view)
+  game_controller.create_new_game('2')
+  game_controller.prompt_player_marker(1)
+  game_controller.prompt_player_marker(2)
 end
-
 
 Then(/^I should see "([^"]*)"$/) do |message|
   expect(view.messages).to include(message)

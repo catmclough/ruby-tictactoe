@@ -26,44 +26,62 @@ module TicTacToe
       @game = nil
       until @game
         type = gets.chomp
-        @game = create_new_game(type)
+        create_new_game(type)
       end
     end
 
     def create_new_game(type)
       case type
       when '1'
-        return ClassicGame.new
+        @game = ClassicGame.new
       when '2'
-        return TwoPlayerGame.new
+        @game = TwoPlayerGame.new
       when '3'
-        return TwoComputerGame.new
+        @game = TwoComputerGame.new
       else
         @view.puts "Invalid game type. Please choose 1, 2, or 3:"
-        return nil
       end
     end
 
     def set_markers
-      if @game.is_a?(TicTacToe::ClassicGame)
-        @view.print @game.player_marker_prompt
-        marker_choice = gets.chomp
+      game_controller.prompt_player_marker(1)
+      game_controller.choose_player_marker(1)
+      game_controller.prompt_player_marker(2)
+      game_controller.choose_player_marker(2)
+    end
 
-        until @game.set_player_marker(marker_choice)
-          @view.puts "Invalid entry. Marker must be one character and cannot be a number or the same as your opponent's (FYI: The computer will always be 'X')."
-          @marker_choice = gets.chomp
-        end
-
-
-        # @game.display_markers(game.player_one.marker, game.player_two.marker)
-      elsif game.is_a?(TicTacToe::TwoPlayerGame)
-        puts "2-Player game!"
-        game.player_marker_prompt(game.player_one)
-        game.player_marker_prompt(game.player_two)
-      elsif game.is_a?(TicTacToe::TwoComputerGame)
-        puts "HEEEEEYYYY YAAAHHHHH"
+    def prompt_player_marker(player)
+      if player == 1 && @game.player_one.is_a?(TicTacToe::Player)
+        @view.print "Player 1 - Choose your marker: "
+      elsif @game.player_two.is_a?(TicTacToe::Player)
+        @view.print "Player 2 - Choose your marker: "
       end
     end
+
+    def choose_player_marker(player)
+      if player == 1
+        if @game.player_one.is_a?(TicTacToe::Player)
+          marker_choice = gets.chomp
+          until @game.set_player_marker(player, marker_choice)
+            invalid_marker_choice
+            @marker_choice = gets.chomp
+          end
+        end
+      else
+        if @game.player_two.is_a?(TicTacToe::Player)
+          marker_choice = gets.chomp
+          until @game.set_player_marker(player, marker_choice)
+            invalid_marker_choice
+            @marker_choice = gets.chomp
+          end
+        end
+      end
+    end
+
+    def invalid_marker_choice
+      @view.puts "Invalid entry. Marker must be one character and cannot be a number or the same as your opponent's (FYI: The computer will always be 'X')."
+    end
+
     # def start_game
     #   @view.display_opening_screen
     #   prompt_turn_selection
@@ -72,19 +90,19 @@ module TicTacToe
     #   play_game
     # end
 
-    def prompt_turn_selection
-      if @player_one.is_a?(Player) || @player_two.is_a?(Player)
-        @view.prompt_order_choice
-        @player_one.choose_turn
-        @player_one.turn == '1' ? @player_two.turn = '2' : @player_two.turn = '1'
-      end
-    end
+    # def prompt_turn_selection
+    #   if @player_one.is_a?(Player) || @player_two.is_a?(Player)
+    #     @view.prompt_order_choice
+    #     @player_one.choose_turn
+    #     @player_one.turn == '1' ? @player_two.turn = '2' : @player_two.turn = '1'
+    #   end
+    # end
 
-    def set_player_marker(player, opponent_marker = nil)
-      player_marker = @view.player_marker_entry(player)
-      validate_player_marker(player_marker, opponent_marker)
-      player.marker = player_marker
-    end
+    # def set_player_marker(player, opponent_marker = nil)
+    #   player_marker = @view.player_marker_entry(player)
+    #   validate_player_marker(player_marker, opponent_marker)
+    #   player.marker = player_marker
+    # end
 
     def play_game
       if @player_one.turn == '1'
@@ -101,12 +119,12 @@ module TicTacToe
       end_game
     end
 
-    def validate_player_marker(player_marker, opponent_marker)
-      while Player.invalid_marker?(player_marker, opponent_marker)
-        @view.invalid_marker_message
-        player_marker = @view.player_marker_entry(player)
-      end
-    end
+    # def validate_player_marker(player_marker, opponent_marker)
+    #   while Player.invalid_marker?(player_marker, opponent_marker)
+    #     @view.invalid_marker_message
+    #     player_marker = @view.player_marker_entry(player)
+    #   end
+    # end
 
     def play_round(first_player, second_player)
       @view.clear_screen

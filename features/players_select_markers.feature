@@ -7,10 +7,10 @@ Feature: user selects a marker
     Scenario: select marker in game against computer
       Given I am not yet playing
       When I have selected to play a player vs. computer game
-      Then I should see "Player One - Choose your marker: "
+      Then I should see "Player 1 - Choose your marker: "
 
     Scenario: select markers in two-player game
       Given I am not yet playing
       When I have selected to play a two-player game
-      Then I should see "Player One - Choose your marker: "
-      And I should see "Player Two - Choose your marker: "
+      Then I should see "Player 1 - Choose your marker: "
+      And I should see "Player 2 - Choose your marker: "
