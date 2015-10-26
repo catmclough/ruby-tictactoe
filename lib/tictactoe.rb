@@ -1,0 +1,8 @@
+require 'tictactoe/models/board'
+require 'tictactoe/models/computer'
+require 'tictactoe/models/classic_game'
+require 'tictactoe/models/player'
+require 'tictactoe/models/two_computer_game'
+require 'tictactoe/models/two_player_game'
+require 'tictactoe/controllers/game_creator'
+require 'tictactoe/controllers/game_controller'
