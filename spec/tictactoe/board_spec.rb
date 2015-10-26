@@ -2,12 +2,13 @@ require 'spec_helper'
 
 module TicTacToe
   describe Board do
-    let(:board) { Board.new("X", "O") }
-    let(:horizontally_won_board) { Board.new("X", "O", ["X", "X", "X", "O", 4, 5, "O", 7, "O"]) }
-    let(:vertically_won_board) { Board.new("X", "O", ["X", "O", 2, "X", 4, "O", "X", 7, "O"]) }
-    let(:diagonally_won_board) { Board.new("X", "O", ["X", "O", 2, 4, "X", "O", "O", 7, "X"]) }
-    let(:incomplete_board) { Board.new("X", "O", ["X", 1, 2, 3, 4, "O", "X", 7, 8]) }
-    let(:cats_game) { Board.new("X", "O", ["X", "O", "X", "O", "O", "X", "X", "X", "O"]) }
+    let(:game) { ClassicGame.new }
+    let(:board) { Board.new("X", "O", game) }
+    let(:horizontally_won_board) { Board.new("X", "O", game, ["X", "X", "X", "O", 4, 5, "O", 7, "O"]) }
+    let(:vertically_won_board) { Board.new("X", "O", game, ["X", "O", 2, "X", 4, "O", "X", 7, "O"]) }
+    let(:diagonally_won_board) { Board.new("X", "O", game, ["X", "O", 2, 4, "X", "O", "O", 7, "X"]) }
+    let(:incomplete_board) { Board.new("O", "X", game, ["O", 1, 2, 3, 4, "O", "X", 7, 8]) }
+    let(:cats_game) { Board.new("X", "O", game, ["X", "O", "X", "O", "O", "X", "X", "X", "O"]) }
 
     describe "#initialize" do
       it "sets an instance variable representing player one's marker" do
@@ -143,12 +144,13 @@ module TicTacToe
 
     describe "#active_player" do
       it "returns the player who's turn it is" do
-        player_one = Player.new('1')
-        player_one.marker = "X"
-        player_two = Player.new('2')
-        player_two.marker = "O"
+        player_one = Player.new
+        player_one.turn = '1'
+        player_one.marker = "O"
+        player_two = Computer.new
+        player_two.turn = '2'
 
-        expect(incomplete_board.active_player(incomplete_board.state, player_one, player_two)).to eq("O")
+        expect(incomplete_board.active_player(incomplete_board.state)).to eq("X")
       end
     end
   end

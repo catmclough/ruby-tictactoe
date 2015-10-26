@@ -2,13 +2,14 @@ require 'spec_helper'
 
 module TicTacToe
   describe Computer do
-    let(:player) { Player.new }
-    let(:computer) { Computer.new }
+    let(:game) { ClassicGame.new }
+    let(:player) { game.player_one }
+    let(:computer) { game.player_two }
     before { player.marker = "O" }
     before { player.turn = "1" }
     before { computer.turn = "2" }
 
-    let(:board) { Board.new("O", "X", ["O", 1, "O", 3, "X", 5, 6, 7, 8]) }
+    let(:board) { Board.new("O", "X", game, ["O", 1, "O", 3, "X", 5, 6, 7, 8]) }
     before(:example) { computer.instance_variable_set(:@first_turn_player, player) }
     before(:example) { computer.instance_variable_set(:@second_turn_player, computer) }
 

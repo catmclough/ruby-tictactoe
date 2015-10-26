@@ -2,8 +2,9 @@ require 'spec_helper'
 
 module TicTacToe
   describe Player do
-    let(:player) { Player.new }
-    let(:test_board) { Board.new("X", "O", ["X", "X", 2, 3, 4, "O", 6, "O", "O"]) }
+    let(:game) { ClassicGame.new }
+    let(:player) { game.player_one }
+    let(:test_board) { Board.new("X", "O", game, ["X", "X", 2, 3, 4, "O", 6, "O", "O"]) }
 
     describe "#choose_turn" do
       it "returns 'the player's choice of turn as a string" do
