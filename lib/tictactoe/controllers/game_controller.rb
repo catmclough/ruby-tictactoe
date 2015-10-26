@@ -55,27 +55,23 @@ module TicTacToe
       end_game
     end
 
-    def play_round(first_player, second_player)
-      display_round_screen
-      @view.puts "#{@board.active_player(@board.state, first_player, second_player)}, you're up."
+    def play_round(active_player, opponent)
+      2.times do
+        unless over?
+          # display_round_screen
+          @view.puts "#{active_player.marker}, you're up."
 
-      if first_player.is_a?(Player)
-        if second_player.is_a?(Computer)
-          @view.puts "The computer has chosen space #{second_player.best_move}." if second_player.best_move
+          if active_player.is_a?(Player)
+            player_move(active_player)
+            display_round_screen
+          else
+            choice = computer_move(active_player)
+            display_round_screen
+            @view.puts "The computer has chosen space #{active_player.best_move}." if active_player.best_move
+          end
+
+          active_player, opponent = opponent, active_player
         end
-
-        player_move(first_player)
-        display_round_screen
-      else
-        choice = computer_move(first_player)
-        display_round_screen
-        @view.puts "The computer has chosen space #{second_player.best_move}." if second_player.best_move
-      end
-
-      unless over?
-        @view.puts "#{@board.active_player(@board.state, first_player, second_player)}, you're up."
-        computer_move(second_player) if second_player.is_a?(Computer)
-        player_move(second_player) if second_player.is_a?(Player)
       end
     end
 
