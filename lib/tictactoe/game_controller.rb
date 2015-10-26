@@ -44,10 +44,10 @@ module TicTacToe
     end
 
     def set_markers
-      game_controller.prompt_player_marker(1)
-      game_controller.choose_player_marker(1)
-      game_controller.prompt_player_marker(2)
-      game_controller.choose_player_marker(2)
+      prompt_player_marker(1)
+      choose_player_marker(1)
+      prompt_player_marker(2)
+      choose_player_marker(2)
     end
 
     def prompt_player_marker(player)
