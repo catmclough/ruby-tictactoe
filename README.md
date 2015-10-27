@@ -13,7 +13,6 @@ To use this program, use the command line to clone this repository
 ##### Instructions for running this program:
 
   * __*nix users:__
-
     Run
 
     ```shell
@@ -25,6 +24,8 @@ To use this program, use the command line to clone this repository
     ```shell
     bin/tictactoe
     ```
+  * __Windows users:__
+    * This program is not yet adapted for Windows users
 
 ### Dependencies needed to test this program:
   * __RSpec__
