@@ -2,71 +2,57 @@
 A command line tic-tac-toe game written in Ruby for zero, one, or two human players.
 
 To use this program, use the command line to clone this repository
-  ```
+
+  ```shell
   git clone https://github.com/catmclough/tictactoe.git
   ```
 
 ### Dependencies needed to run this program:
-  *[Ruby Installation Page](https://www.ruby-lang.org/en/documentation/installation/ "__Ruby__")
+  * [Ruby Installation Page](https://www.ruby-lang.org/en/documentation/installation/ "__Ruby__")
 
 ##### Instructions for running this program:
 
-    __*nix users:__
+  * __*nix users:__
 
     Run
 
-    ```
+    ```shell
     chmod +x bin/tictactoe
     ```
 
-    to make the runner file executable, then run\n
+    to make the runner file executable, then run
 
-    ```
+    ```shell
     bin/tictactoe
     ```
 
 ### Dependencies needed to test this program:
-  *__RSpec__
+  * __RSpec__
 
-      To install RSpec use:
+    * To install RSpec use:
 
-      ```
-      gem install rspec
-      ```
+    ```shell
+    gem install rspec
+    ```
 
-      To run the RSpec tests use:
+    * To run the RSpec tests use:
 
-      ```
+      ```shell
       rspec spec
       ```
 
-  *__Cucumber__
+  * __Cucumber__
+
     * _Cucumber tests take about 30 seconds to complete_
 
-      To install Cucumber use:
+      * To install Cucumber use:
 
-      ```
+      ```shell
       gem install cucumber
       ```
 
-      To run the Cucumber tests use:
+      * To run the Cucumber tests use:
 
-      ```
+      ```shell
       cucumber
       ```
-
-
-#####To test the program:
-
-  Run
-
-  ```
-  cucumber
-  ```
-
-  and then run
-
-  ```
-  rspec
-  ```
-
