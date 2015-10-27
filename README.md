@@ -8,7 +8,7 @@ To use this program, use the command line to clone this repository
   ```
 
 ### Dependencies needed to run this program:
-  * [Ruby Installation Page](https://www.ruby-lang.org/en/documentation/installation/ "__Ruby__")
+  * [**Ruby**](https://www.ruby-lang.org/en/documentation/installation/ "Ruby Installation Page")
 
 ##### Instructions for running this program:
 
@@ -37,22 +37,22 @@ To use this program, use the command line to clone this repository
 
     * To run the RSpec tests use:
 
-      ```shell
-      rspec spec
-      ```
+    ```shell
+    rspec spec
+    ```
 
   * __Cucumber__
 
     * _Cucumber tests take about 30 seconds to complete_
 
-      * To install Cucumber use:
+    * To install Cucumber use:
 
-      ```shell
-      gem install cucumber
-      ```
+    ```shell
+    gem install cucumber
+    ```
 
-      * To run the Cucumber tests use:
+    * To run the Cucumber tests use:
 
-      ```shell
-      cucumber
-      ```
+    ```shell
+    cucumber
+    ```
