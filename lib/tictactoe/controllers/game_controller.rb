@@ -65,8 +65,8 @@ module TicTacToe
 
     def draw_board(board_state)
       board_state.each_with_index do |mark, i|
-        print "|_#{mark}_"
-        puts "|\n" if i == 2 || i == 5 || i == 8
+        @view.print "|_#{mark}_"
+        @view.puts "|\n" if i == 2 || i == 5 || i == 8
       end
     end
 
@@ -88,7 +88,7 @@ module TicTacToe
     end
 
     def computer_move(player)
-      @view.puts "Examining all my options... this could take a minute."
+      puts "Examining all my options... this could take a minute."
       choice = player.choose_move(@board)
       @board.place_marker(choice, player.marker)
       choice

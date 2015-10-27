@@ -25,22 +25,34 @@ When(/^I run the program$/) do
 end
 
 When(/^I have selected to play a player vs\. computer game$/) do
-  @game_creator.create_new_game('1')
-  @game_creator.prompt_player_marker(1)
-  @game_creator.prompt_turn_selection
+  @game_controller = @game_creator.create_new_game('1')
+  @game_controller.prompt_player_marker(1)
 end
 
 When(/^I have selected to play a two\-player game$/) do
-  @game_creator.create_new_game('2')
-  @game_creator.prompt_player_marker(1)
-  @game_creator.prompt_player_marker(2)
-  @game_creator.prompt_turn_selection
+  @game_controller = @game_creator.create_new_game('2')
+  @game_controller.prompt_player_marker(1)
+  @game_controller.prompt_player_marker(2)
+end
+
+When(/^I have set my marker$/) do
+  @game_controller.prompt_turn_selection
+end
+
+When(/^I have selected to play a two\-computer game$/) do
+  @game_controller = @game_creator.create_new_game('3')
+  @game_controller.set_markers
+  @game_controller.set_player_turns
+
+end
+
+When(/^the game is played$/) do
+  @game_controller.start_game
 end
 
 Given(/^the board is empty$/) do
   game_creator = TicTacToe::GameCreator.new(view)
-  @game = game_creator.create_new_game('1')
-  @game_controller = TicTacToe::GameController.new(view, game_creator.game)
+  @game_controller = game_creator.create_new_game('1')
 end
 
 Given(/^I've set my marker as X$/) do
