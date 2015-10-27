@@ -5,6 +5,7 @@ module TicTacToe
     def initialize
       @player_one = Player.new
       @player_two = Computer.new
+      @player_two.marker = "X"
       @player_two.opponent = @player_one
     end
 
@@ -32,6 +33,5 @@ module TicTacToe
     def second_turn_player
       @player_one.turn == '2' ? @player_one : @player_two
     end
-
   end
 end

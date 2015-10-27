@@ -4,9 +4,11 @@ require 'tictactoe'
 
 game_creator = TicTacToe::GameCreator.new(STDOUT)
 game_creator.opening_message
-game_creator.choose_type
-game_creator.set_markers
-game_creator.set_player_turns
+until game_creator.game
+  type = gets.chomp
+  game_controller = game_creator.create_new_game(type)
+end
 
-game_controller = TicTacToe::GameController.new(STDOUT, game_creator.game)
+game_controller.set_markers
+game_controller.set_player_turns
 game_controller.start_game

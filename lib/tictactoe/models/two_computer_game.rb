@@ -4,10 +4,10 @@ module TicTacToe
 
     def initialize
       @player_one = Computer.new
-      @player_two = Computer.new("O")
+      @player_two = Computer.new
       @player_one.turn = '1'
       @player_one.turn = '2'
-      @player_one.opponent = @player_two
+      @player_one.opponent = @player_oner_two
       @player_two.opponent = @player_one
     end
 

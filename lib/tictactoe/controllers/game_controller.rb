@@ -6,7 +6,37 @@ module TicTacToe
       @game = game
       @player_one = game.player_one
       @player_two = game.player_two
-      @board = Board.new(@player_one.marker, @player_two.marker, @game)
+      @board = Board.new(@game)
+    end
+
+    def prompt_player_marker(player)
+      @view.print "Player #{player} - Choose your marker: "
+    end
+
+    def choose_player_marker(player)
+      marker_choice = gets.chomp
+      until @game.set_player_marker(player, marker_choice)
+        invalid_marker_choice
+        prompt_player_marker(player)
+        marker_choice = gets.chomp
+      end
+    end
+
+    def invalid_marker_choice
+      @view.puts "Invalid entry. Marker must be one character and cannot be a number or the same as your opponent's (FYI: The computer will always be 'X')."
+    end
+
+    def set_player_turns
+      prompt_turn_selection
+      choose_turns
+    end
+
+    def set_turn(choice)
+      @game.set_turns(choice)
+    end
+
+    def invalid_turn_choice_message
+      @view.puts"Invalid Turn Choice."
     end
 
     def start_game
@@ -47,25 +77,6 @@ module TicTacToe
       end_game
     end
 
-    def play_round(active_player, opponent)
-      2.times do
-        unless over?
-          @view.puts "#{active_player.marker}, you're up."
-
-          if active_player.is_a?(Player)
-            player_move(active_player)
-            display_round_screen
-          else
-            choice = computer_move(active_player)
-            display_round_screen
-            @view.puts "The computer has chosen space #{active_player.best_move}." if active_player.best_move
-          end
-
-          active_player, opponent = opponent, active_player
-        end
-      end
-    end
-
     def player_move(player)
       @view.puts "Enter the number of the spot you'd like to select: "
       choice = player.choose_spot(@board.state)
@@ -88,25 +99,14 @@ module TicTacToe
     end
 
     def end_game
+      clear_screen
+      @view.puts "GAME OVER."
+      draw_board(@board.state)
       if @board.tie?(@board.state)
-        end_of_tie_game(@board.state)
+        @view.puts "CATS GAME."
       else
-        winner_message(@board.winner(@board.state), @board.state)
+        @view.puts "#{@board.winner(@board.state)} has won the game."
       end
-    end
-
-    def end_of_tie_game(state)
-      clear_screen
-      @view.puts "Game Over."
-      draw_board(state)
-      puts "CATS GAME."
-    end
-
-    def winner_message(winner, state)
-      clear_screen
-      puts "GAME OVER."
-      draw_board(state)
-      puts "#{winner} has won the game."
     end
   end
 end

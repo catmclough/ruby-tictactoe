@@ -1,22 +1,11 @@
 module TicTacToe
   class Computer
-    attr_reader :best_move, :marker
-    attr_accessor :opponent, :turn
+    attr_reader :best_move
+    attr_accessor :opponent, :turn, :marker
 
-    def initialize(marker = 'X')
+    def initialize
       @opponent = opponent
-      @marker = marker
     end
-
-    # def turn=(turn)
-    #   puts "We here."
-    #   @turn = turn
-    #   if turn == '1'
-    #     @first_turn_player, @second_turn_player = self, @opponent
-    #   else
-    #     @second_turn_player, @first_turn_player = self, @opponent
-    #   end
-    # end
 
     def choose_move(board)
       @best_move = nil
@@ -31,46 +20,57 @@ module TicTacToe
 
       scores = []
       moves = []
-      available_spaces = board.get_open_spaces(board_state)
+      score_hypothetical_moves(board, board_state, scores, moves)
 
-      available_spaces.each do |space|
-        possible_board_state = board_state.dup
-        possible_board_state[space] = board.active_player(possible_board_state)
-        scores << minimax(board, possible_board_state).to_i
-        moves << space
-      end
-
-      if board.active_player(board_state) == @marker
-        max_score = scores[0]
-        max_score_index = 0
-
-        scores.each_with_index do |score, index|
-          if score > max_score
-            max_score = score
-            max_score_index = index
-          end
-        end
-
+      if board.active_player(board_state) == marker
+        max_score_index = get_max_index(scores)
         @best_move = moves[max_score_index]
         return scores[max_score_index]
       else
-        min_score = scores[0]
-        min_score_index = 0
-
-        scores.each_with_index do |score, index|
-          if score < min_score
-            min_score = score
-            min_score_index = index
-          end
-        end
-
+        min_score_index = get_min_index(scores)
         @best_move = moves[min_score_index]
         return scores[min_score_index]
       end
     end
 
+    def score_hypothetical_moves(board, board_state, scores, moves)
+      available_spaces = board.get_open_spaces(board_state)
+
+      available_spaces.each do |space|
+        possible_board_state = board_state.dup
+        possible_board_state[space] = board.active_player(possible_board_state)
+
+        scores << minimax(board, possible_board_state).to_i
+        moves << space
+      end
+    end
+
+    def get_max_index(scores)
+      max_score = scores[0]
+      max_score_index = 0
+      scores.each_with_index do |score, index|
+        if score > max_score
+          max_score = score
+          max_score_index = index
+        end
+      end
+      max_score_index
+    end
+
+    def get_min_index(scores)
+      min_score = scores[0]
+      min_score_index = 0
+      scores.each_with_index do |score, index|
+        if score < min_score
+          min_score = score
+          min_score_index = index
+        end
+      end
+      min_score_index
+    end
+
     def score_spot(board, board_state)
-      if board.winner(board_state) == @marker
+      if board.winner(board_state) == marker
         return 1
       elsif board.winner(board_state)
         return -1
