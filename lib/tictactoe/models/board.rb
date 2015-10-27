@@ -2,9 +2,7 @@ module TicTacToe
   class Board
     attr_reader :state
 
-    def initialize(player_one_marker, player_two_marker, game, state = (0..8).to_a)
-      @player_one_marker = player_one_marker
-      @player_two_marker = player_two_marker
+    def initialize(game, state = (0..8).to_a)
       @game = game
       @state = state
     end
@@ -72,7 +70,7 @@ module TicTacToe
     end
 
     def get_open_spaces(board)
-      board.select { |s| s != @player_one_marker && s != @player_two_marker }
+      board.select { |s| s != @game.player_one.marker && s != @game.player_two.marker }
     end
   end
 end
