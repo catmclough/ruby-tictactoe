@@ -70,7 +70,7 @@ module TicTacToe
     end
 
     def get_open_spaces(board)
-      board.select { |s| s != @game.player_one.marker && s != @game.player_two.marker }
+      board.select { |s| s.is_a?(Integer) }
     end
   end
 end

@@ -3,22 +3,14 @@ require 'spec_helper'
 module TicTacToe
   describe Board do
     let(:game) { ClassicGame.new }
-    let(:board) { Board.new("X", "O", game) }
-    let(:horizontally_won_board) { Board.new("X", "O", game, ["X", "X", "X", "O", 4, 5, "O", 7, "O"]) }
-    let(:vertically_won_board) { Board.new("X", "O", game, ["X", "O", 2, "X", 4, "O", "X", 7, "O"]) }
-    let(:diagonally_won_board) { Board.new("X", "O", game, ["X", "O", 2, 4, "X", "O", "O", 7, "X"]) }
-    let(:incomplete_board) { Board.new("O", "X", game, ["O", 1, 2, 3, 4, "O", "X", 7, 8]) }
-    let(:cats_game) { Board.new("X", "O", game, ["X", "O", "X", "O", "O", "X", "X", "X", "O"]) }
+    let(:board) { Board.new(game) }
+    let(:horizontally_won_board) { Board.new(game, ["X", "X", "X", "O", 4, 5, "O", 7, "O"]) }
+    let(:vertically_won_board) { Board.new(game, ["X", "O", 2, "X", 4, "O", "X", 7, "O"]) }
+    let(:diagonally_won_board) { Board.new(game, ["X", "O", 2, 4, "X", "O", "O", 7, "X"]) }
+    let(:incomplete_board) { Board.new(game, ["O", 1, 2, 3, 4, "O", "X", 7, 8]) }
+    let(:cats_game) { Board.new(game, ["X", "O", "X", "O", "O", "X", "X", "X", "O"]) }
 
     describe "#initialize" do
-      it "sets an instance variable representing player one's marker" do
-        expect(board.instance_variable_get(:@player_one_marker)).not_to be_nil
-      end
-
-      it "sets an instance variable representing player two's marker" do
-        expect(board.instance_variable_get(:@player_two_marker)).not_to be_nil
-      end
-
       it "instantiates a board 'state' with 9 spaces" do
         expect(board.state.length).to eq(9)
       end

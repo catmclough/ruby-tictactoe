@@ -4,7 +4,7 @@ module TicTacToe
   describe Player do
     let(:game) { ClassicGame.new }
     let(:player) { game.player_one }
-    let(:test_board) { Board.new("X", "O", game, ["X", "X", 2, 3, 4, "O", 6, "O", "O"]) }
+    let(:test_board) { Board.new(game, ["X", "X", 2, 3, 4, "O", 6, "O", "O"]) }
 
     describe "#choose_turn" do
       it "returns 'the player's choice of turn as a string" do
