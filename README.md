@@ -6,49 +6,60 @@ To use this program, use the command line to clone this repository
   git clone https://github.com/catmclough/tictactoe.git
   ```
 
-Dependencies needed to run this program:\n
-  <ul><li><a href="https://www.ruby-lang.org/en/documentation/installation/"><em>Ruby</em></a><li></ul>
+### Dependencies needed to run this program:
+  *[Ruby Installation Page](https://www.ruby-lang.org/en/documentation/installation/ "__Ruby__")
 
-Instructions for running this program:
+##### Instructions for running this program:
 
-  <em>*nix users</em>
+    __*nix users:__
 
-    Run\n
+    Run
+
     ```
     chmod +x bin/tictactoe
     ```
+
     to make the runner file executable, then run\n
 
     ```
     bin/tictactoe
     ```
 
-Dependencies needed to test this program:\n
-  <ul>
-    <li><em>RSpec</em></a><li>
+### Dependencies needed to test this program:
+  *__RSpec__
+
       To install RSpec use:
+
       ```
       gem install rspec
       ```
+
       To run the RSpec tests use:
+
       ```
       rspec spec
       ```
-    <li><em>Cucumber</em></a><li>
+
+  *__Cucumber__
+    * _Cucumber tests take about 30 seconds to complete_
+
       To install Cucumber use:
+
       ```
       gem install cucumber
       ```
+
       To run the Cucumber tests use:
+
       ```
       cucumber
       ```
-  </ul>
 
 
-To test the program:
+#####To test the program:
 
   Run
+
   ```
   cucumber
   ```
