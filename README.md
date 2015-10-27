@@ -6,38 +6,45 @@ To use this program, use the command line to clone this repository
   git clone https://github.com/catmclough/tictactoe.git
   ```
 
-Further Instructions for Mac Users
+Dependencies needed to run this program:\n
+  <ul><li><a href="https://www.ruby-lang.org/en/documentation/installation/"><em>Ruby</em></a><li></ul>
 
-Dependancies needed to run this program:
-  -ruby
+Instructions for running this program:
+
+  <em>*nix users</em>
+
+    Run\n
     ```
-    gem install ruby
+    chmod +x bin/tictactoe
+    ```
+    to make the runner file executable, then run\n
+
+    ```
+    bin/tictactoe
     ```
 
-Dependancies needed to test this program:
-  -rspec
-    ```
-    gem install rspec
-    ```
-  -cucumber
-    ```
-    gem install cucumber
-    ```
+Dependencies needed to test this program:\n
+  <ul>
+    <li><em>RSpec</em></a><li>
+      To install RSpec use:
+      ```
+      gem install rspec
+      ```
+      To run the RSpec tests use:
+      ```
+      rspec spec
+      ```
+    <li><em>Cucumber</em></a><li>
+      To install Cucumber use:
+      ```
+      gem install cucumber
+      ```
+      To run the Cucumber tests use:
+      ```
+      cucumber
+      ```
+  </ul>
 
-
-To run the program:
-
-  If you're a *nix user, run
-
-  ```
-  chmod +x bin/tictactoe
-  ```
-
-  then run
-
-  ```
-  bin/tictactoe
-  ```
 
 To test the program:
 
