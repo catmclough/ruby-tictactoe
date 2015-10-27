@@ -9,7 +9,7 @@ module TicTacToe
     before { player.turn = "1" }
     before { computer.turn = "2" }
 
-    let(:board) { Board.new("O", "X", game, ["O", 1, "O", 3, "X", 5, 6, 7, 8]) }
+    let(:board) { Board.new(game, ["O", 1, "O", 3, "X", 5, 6, 7, 8]) }
     before(:example) { computer.instance_variable_set(:@first_turn_player, player) }
     before(:example) { computer.instance_variable_set(:@second_turn_player, computer) }
 
