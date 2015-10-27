@@ -20,7 +20,7 @@ module TicTacToe
           @view.puts "#{active_player.marker}, you're up."
             computer_move(active_player)
             display_round_screen
-            @view.puts "The computer has chosen space #{active_player.best_move}." if active_player.best_move
+          @view.puts "The computer has chosen space #{active_player.best_move}." if active_player.best_move
         end
         active_player, opponent = opponent, active_player
       end
