@@ -5,9 +5,9 @@ module TicTacToe
     def choose_turn
       turn_choice = gets.chomp
       if turn_choice == '2'
-        @turn = turn_choice
+        self.turn = turn_choice
       else
-        @turn  = '1'
+        self.turn = '1'
       end
     end
 

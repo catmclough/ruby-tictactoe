@@ -1,6 +1,6 @@
 module TicTacToe
   class Board
-    attr_reader :state
+    attr_reader :state, :game
 
     def initialize(game, state = (0..8).to_a)
       @game = game
@@ -8,7 +8,7 @@ module TicTacToe
     end
 
     def place_marker(choice, marker)
-      @state[choice.to_i] = marker
+      state[choice.to_i] = marker
     end
 
     def winner(board)
@@ -54,10 +54,10 @@ module TicTacToe
     end
 
     def active_player(board_state)
-      if board_state.count(@game.first_turn_player.marker) <= board_state.count(@game.second_turn_player.marker)
-        return @game.first_turn_player.marker
+      if board_state.count(game.first_turn_player.marker) <= board_state.count(game.second_turn_player.marker)
+        return game.first_turn_player.marker
       else
-        return @game.second_turn_player.marker
+        return game.second_turn_player.marker
       end
     end
 
@@ -66,7 +66,7 @@ module TicTacToe
     end
 
     def full?
-      @state.all? { |space| !(/\A\d+\z/.match(space.to_s)) }
+      state.all? { |space| !(/\A\d+\z/.match(space.to_s)) }
     end
 
     def get_open_spaces(board)
