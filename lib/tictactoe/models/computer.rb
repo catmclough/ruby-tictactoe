@@ -45,13 +45,11 @@ module TicTacToe
     end
 
     def get_max_index(scores)
-      max_score_index = scores.index(scores.max)
-      max_score_index ? max_score_index : 0
+      scores.index(scores.max) || 0
     end
 
     def get_min_index(scores)
-      min_score_index = scores.index(scores.min)
-      min_score_index ? min_score_index : 0
+      scores.index(scores.min) || 0
     end
 
     def score_spot(board, board_state)
