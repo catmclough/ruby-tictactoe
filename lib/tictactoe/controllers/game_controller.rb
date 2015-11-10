@@ -1,9 +1,9 @@
 module TicTacToe
   class GameController < GameCreator
 
-    def initialize(view, game)
-      @view = view
-      @game = game
+    def initialize(args)
+      @view = args[:view]
+      @game = args[:game]
       @player_one = game.player_one
       @player_two = game.player_two
       @board = Board.new(@game)

@@ -27,13 +27,13 @@ module TicTacToe
       case type
       when '1'
         @game = ClassicGame.new
-        ClassicGameController.new(@view, @game)
+        ClassicGameController.new({view: @view, game: @game})
       when '2'
         @game = TwoPlayerGame.new
-        TwoPlayerGameController.new(@view, @game)
+        TwoPlayerGameController.new({view: @view, game: @game})
       when '3'
         @game = TwoComputerGame.new
-        TwoComputerGameController.new(@view, @game)
+        TwoComputerGameController.new({view: @view, game: @game})
       else
         @view.puts "Invalid game type. Please choose 1, 2, or 3:"
         @game = nil

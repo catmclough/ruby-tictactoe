@@ -1,10 +1,6 @@
 module TicTacToe
   class ClassicGameController < GameController
 
-    def initialize(view, game)
-      super(view, game)
-    end
-
     def set_markers
       prompt_player_marker(1)
       choose_player_marker(1)

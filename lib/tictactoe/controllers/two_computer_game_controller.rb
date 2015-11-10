@@ -1,8 +1,5 @@
 module TicTacToe
   class TwoComputerGameController < GameController
-    def initialize(view, game)
-      super(view, game)
-    end
 
     def set_markers
       @player_one.marker = "X"
