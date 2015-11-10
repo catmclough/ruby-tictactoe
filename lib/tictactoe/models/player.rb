@@ -18,10 +18,7 @@ module TicTacToe
     end
 
     def validate_marker(player_marker, opponent_marker)
-      if Player.invalid_marker?(player_marker, opponent_marker)
-        return false
-      end
-      true
+      Player.invalid_marker?(player_marker, opponent_marker) ? false : true
     end
 
     def self.invalid_marker?(entry, opponent_marker = nil)
