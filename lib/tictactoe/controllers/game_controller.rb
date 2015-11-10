@@ -3,7 +3,7 @@ module TicTacToe
 
     attr_reader :game, :board, :view
 
-    def initialize(args)
+    def initialize(args = {})
       @view = args[:view]
       @game = args[:game]
       @player_one = game.player_one

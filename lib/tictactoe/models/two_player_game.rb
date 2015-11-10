@@ -26,8 +26,8 @@ module TicTacToe
         player_one.turn = '1'
         player_two.turn = '2'
       else
-        player_two.turn = '1'
         player_one.turn = '2'
+        player_two.turn = '1'
       end
     end
 
