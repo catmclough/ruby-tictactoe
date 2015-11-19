@@ -13,7 +13,7 @@ To use this program, use the command line to clone this repository
 ##### Instructions for running this program:
 
   * __*nix users:__
-  
+
     Run
 
     ```shell
