@@ -12,11 +12,11 @@ module TicTacToe
     end
 
     def first_turn_player
-      @player_one.turn == '1' ? @player_one : @player_two
+      player_one.turn == '1' ? player_one : player_two
     end
 
     def second_turn_player
-      @player_one.turn == '2' ? @player_one : @player_two
+      player_one.turn == '2' ? player_one : player_two
     end
 
   end

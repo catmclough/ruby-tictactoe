@@ -5,9 +5,9 @@ module TicTacToe
     def choose_turn
       turn_choice = gets.chomp
       if turn_choice == '2'
-        @turn = turn_choice
+        self.turn = turn_choice
       else
-        @turn  = '1'
+        self.turn = '1'
       end
     end
 
@@ -18,10 +18,7 @@ module TicTacToe
     end
 
     def validate_marker(player_marker, opponent_marker)
-      if Player.invalid_marker?(player_marker, opponent_marker)
-        return false
-      end
-      true
+      Player.invalid_marker?(player_marker, opponent_marker) ? false : true
     end
 
     def self.invalid_marker?(entry, opponent_marker = nil)

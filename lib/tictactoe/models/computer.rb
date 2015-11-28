@@ -1,16 +1,15 @@
 module TicTacToe
   class Computer
-    attr_reader :best_move
-    attr_accessor :opponent, :turn, :marker
+    attr_accessor :opponent, :turn, :marker, :best_move
 
     def initialize
       @opponent = opponent
     end
 
     def choose_move(board)
-      @best_move = nil
+      self.best_move = nil
       minimax(board, board.state)
-      @best_move
+      best_move
     end
 
     def minimax(board, board_state)
@@ -24,11 +23,11 @@ module TicTacToe
 
       if board.active_player(board_state) == marker
         max_score_index = get_max_index(scores)
-        @best_move = moves[max_score_index]
+        self.best_move = moves[max_score_index]
         return scores[max_score_index]
       else
         min_score_index = get_min_index(scores)
-        @best_move = moves[min_score_index]
+        self.best_move = moves[min_score_index]
         return scores[min_score_index]
       end
     end
@@ -46,27 +45,11 @@ module TicTacToe
     end
 
     def get_max_index(scores)
-      max_score = scores[0]
-      max_score_index = 0
-      scores.each_with_index do |score, index|
-        if score > max_score
-          max_score = score
-          max_score_index = index
-        end
-      end
-      max_score_index
+      scores.index(scores.max) || 0
     end
 
     def get_min_index(scores)
-      min_score = scores[0]
-      min_score_index = 0
-      scores.each_with_index do |score, index|
-        if score < min_score
-          min_score = score
-          min_score_index = index
-        end
-      end
-      min_score_index
+      scores.index(scores.min) || 0
     end
 
     def score_spot(board, board_state)

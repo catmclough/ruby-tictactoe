@@ -1,8 +1,5 @@
 module TicTacToe
   class TwoPlayerGameController < GameController
-    def initialize(view, game)
-      super(view, game)
-    end
 
     def set_markers
       prompt_player_marker(1)
