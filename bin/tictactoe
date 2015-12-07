@@ -2,7 +2,15 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'tictactoe'
 
-game_creator = TicTacToe::GameCreator.new(STDOUT)
+output = TicTacToe::Output.new
+input = TicTacToe::UserInput.new
+interface = TicTacToe::TicTacToeView.new
+
+game_creator = TicTacToe::GameCreator.new({
+                          output: output,
+                          input: input,
+                          view: interface})
+
 game_creator.opening_message
 until game_creator.game
   type = gets.chomp

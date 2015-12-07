@@ -4,15 +4,16 @@ module TicTacToe
     attr_reader :game, :board, :view
 
     def initialize(args = {})
-      @view = args[:view]
-      @game = args[:game]
+      @output = args.fetch(:output)
+      @view = args.fetch(:view)
+      @game = args.fetch(:game)
       @player_one = game.player_one
       @player_two = game.player_two
       @board = Board.new(@game)
     end
 
     def prompt_player_marker(player)
-      view.print "Player #{player} - Choose your marker: "
+      @output.print(@view.prompt_player_marker(player))
     end
 
     def choose_player_marker(player)
