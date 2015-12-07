@@ -1,23 +1,27 @@
-class View
+class Output
   def messages
     @messages ||= []
   end
 
   def puts(message)
-    messages << message
+    @messages << message
   end
 
   def print(message)
-    messages << message
+    @messages << message
   end
 end
 
 def view
-  @view ||= View.new
+  @view ||= TicTacToe::TicTacToeView.new
+end
+
+def output
+  @output ||= TicTacToe::Output.new
 end
 
 Given(/^I am not yet playing$/) do
-  @game_creator = TicTacToe::GameCreator.new(view)
+  @game_creator = TicTacToe::GameCreator.new(output: output, view: view)
 end
 
 When(/^I run the program$/) do

@@ -13,30 +13,28 @@ module TicTacToe
 
     def opening_message
       clear_screen
-      @view.puts "Welcome to my Tic Tac Toe game!"
+      @output.puts(@view.opening_message)
       game_type_options
     end
 
     def game_type_options
-      @view.puts "Please choose a game type:"
-      @view.puts "1. You vs. Computer"
-      @view.puts "2. 2-Player"
-      @view.puts "3. Computer vs. Computer"
+      @output.puts(@view.game_type_options)
     end
 
     def create_new_game(type)
       case type
       when '1'
         @game = ClassicGame.new
-        ClassicGameController.new({output: @output, view: @view, game: game})
+        ClassicGameController.new({output: @output, view: @view, game: @game})
       when '2'
         @game = TwoPlayerGame.new
-        TwoPlayerGameController.new({output: @output, view: @view, game: game})
+        TwoPlayerGameController.new({output: @output, view: @view, game: @game})
       when '3'
         @game = TwoComputerGame.new
-        TwoComputerGameController.new({output: @output, view: @view, game: game})
+        TwoComputerGameController.new({output: @output, view: @view, game: @game})
       else
-        @view.puts "Invalid game type. Please choose 1, 2, or 3:"
+        @output.puts(@view.invalid_entry)
+        # game_type_options
         @game = nil
       end
     end

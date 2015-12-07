@@ -26,7 +26,8 @@ module TicTacToe
     end
 
     def invalid_marker_choice
-      view.puts "Invalid entry. Marker must be one character and cannot be a number or the same as your opponent's (FYI: The computer will always be 'X')."
+      @output.puts(@view.invalid_entry)
+      @output.puts(@view.marker_instructions)
     end
 
     def set_player_turns
@@ -39,7 +40,7 @@ module TicTacToe
     end
 
     def invalid_turn_choice_message
-      view.puts"Invalid Turn Choice."
+      @output.puts(@view.invalid_entry)
     end
 
     def start_game
@@ -58,18 +59,18 @@ module TicTacToe
       game_types = {ClassicGame => "You vs. Computer",
                     TwoPlayerGame => "Two Player",
                     TwoComputerGame => "Two Computers" }
-      view.puts "Game Type: #{game_types[game.class]}"
+      @output.puts(@view.game_type(game_types[game.class]))
     end
 
     def display_player_markers
-      view.puts "Player One: #{game.first_turn_player.marker}"
-      view.puts "Player Two: #{game.second_turn_player.marker}"
+      @output.puts(@view.marker_info(1, game.first_turn_player.marker))
+      @output.puts(@view.marker_info(2, game.second_turn_player.marker))
     end
 
     def draw_board(board_state)
       board_state.each_with_index do |mark, i|
-        view.print "|_#{mark}_"
-        view.puts "|\n" if i == 2 || i == 5 || i == 8
+        @output.print "|_#{mark}_"
+        @output.puts "|\n" if i == 2 || i == 5 || i == 8
       end
     end
 
@@ -81,17 +82,17 @@ module TicTacToe
     end
 
     def player_move(player)
-      view.puts "Enter the number of the spot you'd like to select: "
+      @output.puts(@view.prompt_move)
       choice = player.choose_spot(board.state)
       until choice
-        view.print "That's not an open spot on the board. Try again: "
+        @output.puts(@view.invalid_entry)
         choice = player.choose_spot(board.state)
       end
       board.place_marker(choice, player.marker)
     end
 
     def computer_move(player)
-      puts "Examining all my options... this could take a minute."
+      @output.puts(@view.thinking_message)
       choice = player.choose_move(board)
       board.place_marker(choice, player.marker)
       choice
@@ -102,13 +103,13 @@ module TicTacToe
     end
 
     def end_game
-      clear_screen
-      view.puts "GAME OVER."
+      @output.clear_screen
+      @output.puts(@view.game_over)
       draw_board(board.state)
       if board.tie?(board.state)
-        view.puts "CATS GAME."
+        @output.puts(@view.cats_game)
       else
-        view.puts "#{board.winner(board.state)} has won the game."
+        @output.puts(@view.winning_message(board.winner(board.state)))
       end
     end
   end
