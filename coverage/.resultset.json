@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe.rb": [
         1,
         1,
         1,
@@ -14,7 +14,7 @@
         1,
         1
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/models/board.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/models/board.rb": [
         1,
         1,
         1,
@@ -92,7 +92,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/models/computer.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/models/computer.rb": [
         1,
         1,
         1,
@@ -159,7 +159,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/models/classic_game.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/models/classic_game.rb": [
         1,
         1,
         1,
@@ -198,7 +198,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/models/player.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/models/player.rb": [
         1,
         1,
         1,
@@ -232,7 +232,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/models/two_computer_game.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/models/two_computer_game.rb": [
         1,
         1,
         1,
@@ -257,7 +257,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/models/two_player_game.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/models/two_player_game.rb": [
         1,
         1,
         1,
@@ -301,7 +301,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/controllers/game_creator.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/controllers/game_creator.rb": [
         1,
         1,
         1,
@@ -346,7 +346,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/controllers/game_controller.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/controllers/game_controller.rb": [
         1,
         1,
         null,
@@ -462,7 +462,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/controllers/classic_game_controller.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/controllers/classic_game_controller.rb": [
         1,
         1,
         null,
@@ -505,7 +505,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/controllers/two_player_game_controller.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/controllers/two_player_game_controller.rb": [
         1,
         1,
         null,
@@ -557,7 +557,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/lib/tictactoe/controllers/two_computer_game_controller.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/lib/tictactoe/controllers/two_computer_game_controller.rb": [
         1,
         1,
         null,
@@ -585,7 +585,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/spec/tictactoe/computer_spec.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/spec/tictactoe/computer_spec.rb": [
         1,
         null,
         1,
@@ -639,7 +639,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/spec/tictactoe/game_controller_spec.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/spec/tictactoe/game_controller_spec.rb": [
         1,
         null,
         1,
@@ -717,7 +717,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/spec/tictactoe/game_creator_spec.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/spec/tictactoe/game_creator_spec.rb": [
         1,
         null,
         1,
@@ -750,7 +750,7 @@
         null,
         null
       ],
-      "/Users/catherinemcloughlin/Desktop/tictactoe/spec/tictactoe/player_spec.rb": [
+      "/Users/catherinemcloughlin/Desktop/8th_light/tictactoe/spec/tictactoe/player_spec.rb": [
         1,
         null,
         1,
@@ -833,6 +833,6 @@
         null
       ]
     },
-    "timestamp": 1447899302
+    "timestamp": 1449103889
   }
 }
