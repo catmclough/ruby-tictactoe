@@ -40,7 +40,7 @@ module TicTacToe
       context "user has selected to have two computers play against eachother" do
         let(:controller) { constructor.create_new_game('3') }
         it "does not prompt either player to select a marker" do
-          expect(view).not_to receive(:print).with("Player 1 - Choose your marker: ")
+          expect(output).not_to receive(:print).with(view.prompt_player_marker(1))
           controller.set_markers
         end
       end
@@ -51,7 +51,7 @@ module TicTacToe
         let(:controller) { constructor.create_new_game('1') }
         before { expect(controller).to receive(:gets).and_return("1") }
         it "asks player whether they would like to go first or second" do
-          expect(view).to receive(:print).with("Would you like to go first or second? (Enter 1 or 2): ")
+          expect(output).to receive(:print).with(view.prompt_turn_selection)
           controller.set_player_turns
         end
       end
@@ -59,7 +59,7 @@ module TicTacToe
       context "user has selected to play against another player" do
         let(:controller) { constructor.create_new_game('2') }
         it "asks user to enter the marker of the player who will go first" do
-          expect(view).to receive(:print).with("Enter the marker of the player who will go first: ")
+          expect(output).to receive(:print).with(view.first_turn_selection)
           controller.prompt_turn_selection
         end
       end
@@ -67,7 +67,7 @@ module TicTacToe
       context "user has selected to have two computers play against eachother" do
         let(:controller) { constructor.create_new_game('3') }
         it "does not ask the user to choose turns" do
-          expect(view).not_to receive(:print)
+          expect(output).not_to receive(:print)
           controller.set_player_turns
         end
       end

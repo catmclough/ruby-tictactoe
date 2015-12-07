@@ -22,7 +22,7 @@ module TicTacToe
     end
 
     def prompt_turn_selection
-      @view.print "Enter the marker of the player who will go first: "
+      @output.print(@view.prompt_first_turn_selection)
     end
 
     def choose_turns
