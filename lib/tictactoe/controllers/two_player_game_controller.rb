@@ -9,7 +9,7 @@ module TicTacToe
     end
 
     def prompt_player_marker(player)
-      @view.print "Player #{player} - Choose your marker: "
+      @output.print(@view.prompt_player_marker(player))
     end
 
     def choose_player_marker(player)

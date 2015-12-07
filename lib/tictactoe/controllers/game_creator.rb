@@ -2,8 +2,9 @@ module TicTacToe
   class GameCreator
     attr_reader :game
 
-    def initialize(view)
-      @view = view
+    def initialize(args)
+      @output = args.fetch(:output)
+      @view = args.fetch(:view)
     end
 
     def clear_screen
@@ -27,13 +28,13 @@ module TicTacToe
       case type
       when '1'
         @game = ClassicGame.new
-        ClassicGameController.new({view: @view, game: game})
+        ClassicGameController.new({output: @output, view: @view, game: game})
       when '2'
         @game = TwoPlayerGame.new
-        TwoPlayerGameController.new({view: @view, game: game})
+        TwoPlayerGameController.new({output: @output, view: @view, game: game})
       when '3'
         @game = TwoComputerGame.new
-        TwoComputerGameController.new({view: @view, game: game})
+        TwoComputerGameController.new({output: @output, view: @view, game: game})
       else
         @view.puts "Invalid game type. Please choose 1, 2, or 3:"
         @game = nil
