@@ -7,14 +7,14 @@ module TicTacToe
       @view = args.fetch(:view)
     end
 
-    def clear_screen
-      print "\e[2J"
-    end
-
     def opening_message
       clear_screen
       @output.puts(@view.opening_message)
       game_type_options
+    end
+
+    def clear_screen
+      @output.print(@view.clear_screen)
     end
 
     def game_type_options
