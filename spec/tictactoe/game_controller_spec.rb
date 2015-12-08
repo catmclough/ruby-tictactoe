@@ -9,7 +9,7 @@ module TicTacToe
 
     describe "set the player markers" do
       context "user has selected to play against computer" do
-        before(:example) { expect(controller).to receive(:gets).and_return("x") }
+        before(:each) { expect(controller).to receive(:gets).and_return("x") }
         it "prompts player one to select a marker" do
           expect(output).to receive(:print).with(view.prompt_player_marker(1))
           controller.set_markers

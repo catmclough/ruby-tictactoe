@@ -8,7 +8,6 @@ interface = TicTacToe::TicTacToeView.new
 
 game_creator = TicTacToe::GameCreator.new({
                           output: output,
-                          input: input,
                           view: interface})
 
 game_creator.opening_message

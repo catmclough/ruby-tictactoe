@@ -1,5 +1,9 @@
 module TicTacToe
   class TicTacToeView
+      def clear_screen
+        "\e[2J"
+      end
+
       def opening_message
         "Welcome to Tic-Tac-Toe!"
       end
