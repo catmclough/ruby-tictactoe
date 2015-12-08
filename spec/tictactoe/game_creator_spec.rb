@@ -42,7 +42,7 @@ module TicTacToe
       end
 
       context "when user correctly chooses a game type" do
-        it "creates a classic game if user chooses game type '1'" do
+        it "creates a classic game when user chooses game type '1'" do
           constructor.create_new_game('1')
           expect(constructor.game).to be_a(ClassicGame)
         end

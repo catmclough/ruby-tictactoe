@@ -14,26 +14,26 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-07T21:17:16-08:00">2015-12-07T21:17:16-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-07T21:28:42-08:00">2015-12-07T21:28:42-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">79.71%</span></span>
+    (<span class="covered_percent"><span class="red">79.74%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         369.72
+         369.04
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>19</b> files in total.
-    <b>547</b> relevant lines. 
-    <span class="green"><b>436</b> lines covered</span> and
+    <b>548</b> relevant lines. 
+    <span class="green"><b>437</b> lines covered</span> and
     <span class="red"><b>111</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -84,10 +84,10 @@
         <td class="strong"><a href="#af4c944ce5968707a642e62cce2346c895cf3738" class="src_link" title="lib/tictactoe/controllers/game_creator.rb">lib/tictactoe/controllers/game_creator.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>42</td>
-        <td>24</td>
-        <td>24</td>
+        <td>25</td>
+        <td>25</td>
         <td>0</td>
-        <td>4.2</td>
+        <td>4.1</td>
       </tr>
       
       <tr>
@@ -1341,8 +1341,8 @@
     <h3>lib/tictactoe/controllers/game_creator.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
-      <span class="green"><b>24</b> lines covered</span> and
+      <b>25</b> relevant lines. 
+      <span class="green"><b>25</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1566,10 +1566,10 @@
           <code class="ruby">        @output.puts(@view.invalid_entry)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="covered" data-hits="2" data-linenumber="37">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">        # game_type_options</code>
+          <code class="ruby">        @output.puts(@view.game_type_options)</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="38">
@@ -4923,7 +4923,7 @@
         <li class="covered" data-hits="3" data-linenumber="12">
           <span class="hits">3</span>
           
-          <code class="ruby">        before(:example) { expect(controller).to receive(:gets).and_return(&quot;x&quot;) }</code>
+          <code class="ruby">        before(:each) { expect(controller).to receive(:gets).and_return(&quot;x&quot;) }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="13">
@@ -5595,7 +5595,7 @@
         <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;creates a classic game if user chooses game type &#39;1&#39;&quot; do</code>
+          <code class="ruby">        it &quot;creates a classic game when user chooses game type &#39;1&#39;&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="46">
