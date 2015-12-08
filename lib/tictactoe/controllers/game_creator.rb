@@ -34,7 +34,7 @@ module TicTacToe
         TwoComputerGameController.new({output: @output, view: @view, game: @game})
       else
         @output.puts(@view.invalid_entry)
-        # game_type_options
+        @output.puts(@view.game_type_options)
         @game = nil
       end
     end

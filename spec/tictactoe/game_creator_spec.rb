@@ -35,6 +35,10 @@ module TicTacToe
         it "gives an error message" do
           expect(output).to receive(:puts).with(view.invalid_entry)
         end
+
+        it "repeats the game selection instructions" do
+          expect(output).to receive(:puts).with(view.game_type_options)
+        end
       end
 
       context "when user correctly chooses a game type" do

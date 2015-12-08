@@ -14,26 +14,26 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-07T21:15:28-08:00">2015-12-07T21:15:28-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-07T21:17:16-08:00">2015-12-07T21:17:16-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">79.63%</span></span>
+    (<span class="covered_percent"><span class="red">79.71%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         371.05
+         369.72
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>19</b> files in total.
-    <b>545</b> relevant lines. 
-    <span class="green"><b>434</b> lines covered</span> and
+    <b>547</b> relevant lines. 
+    <span class="green"><b>436</b> lines covered</span> and
     <span class="red"><b>111</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -87,7 +87,7 @@
         <td>24</td>
         <td>24</td>
         <td>0</td>
-        <td>4.0</td>
+        <td>4.2</td>
       </tr>
       
       <tr>
@@ -223,11 +223,11 @@
       <tr>
         <td class="strong"><a href="#4b7de97f3bf138b7d7b62029a61cdc4a524b9754" class="src_link" title="spec/tictactoe/game_creator_spec.rb">spec/tictactoe/game_creator_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>58</td>
-        <td>32</td>
-        <td>32</td>
+        <td>62</td>
+        <td>34</td>
+        <td>34</td>
         <td>0</td>
-        <td>1.9</td>
+        <td>2.0</td>
       </tr>
       
       <tr>
@@ -1380,14 +1380,14 @@
           <code class="ruby">    def initialize(args)</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="6">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="6">
+          <span class="hits">17</span>
           
           <code class="ruby">      @output = args.fetch(:output)</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="7">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="7">
+          <span class="hits">17</span>
           
           <code class="ruby">      @view = args.fetch(:view)</code>
         </li>
@@ -1494,8 +1494,8 @@
           <code class="ruby">    def create_new_game(type)</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="25">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="25">
+          <span class="hits">13</span>
           
           <code class="ruby">      case type</code>
         </li>
@@ -1560,8 +1560,8 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="36">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="36">
+          <span class="hits">2</span>
           
           <code class="ruby">        @output.puts(@view.invalid_entry)</code>
         </li>
@@ -1572,8 +1572,8 @@
           <code class="ruby">        # game_type_options</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="38">
+          <span class="hits">2</span>
           
           <code class="ruby">        @game = nil</code>
         </li>
@@ -5319,8 +5319,8 @@
     <h3>spec/tictactoe/game_creator_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>32</b> relevant lines. 
-      <span class="green"><b>32</b> lines covered</span> and
+      <b>34</b> relevant lines. 
+      <span class="green"><b>34</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -5352,20 +5352,20 @@
           <code class="ruby">  describe GameCreator do</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="5">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="5">
+          <span class="hits">10</span>
           
           <code class="ruby">    let(:view) { double(&#39;view&#39;).as_null_object }</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="6">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="6">
+          <span class="hits">10</span>
           
           <code class="ruby">    let(:output) { double(&#39;output&#39;).as_null_object }</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="7">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="7">
+          <span class="hits">10</span>
           
           <code class="ruby">    let(:constructor) { GameCreator.new({</code>
         </li>
@@ -5526,8 +5526,8 @@
           <code class="ruby">      context &quot;when invalid type is chosen by player&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="34">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="34">
+          <span class="hits">3</span>
           
           <code class="ruby">        after(:each) { constructor.create_new_game(&#39;Z&#39;) }</code>
         </li>
@@ -5553,124 +5553,148 @@
         <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">        it &quot;repeats the game selection instructions&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="40">
           <span class="hits">1</span>
           
-          <code class="ruby">      context &quot;when user correctly chooses a game type&quot; do</code>
+          <code class="ruby">          expect(output).to receive(:puts).with(view.game_type_options)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="41">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        it &quot;creates a classic game if user chooses game type &#39;1&#39;&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="42">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          constructor.create_new_game(&#39;1&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          expect(constructor.game).to be_a(ClassicGame)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="41">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="46">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        it &quot;creates a two player game if user chooses game type &#39;2&#39;&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="47">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          constructor.create_new_game(&#39;2&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="48">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          expect(constructor.game).to be_a(TwoPlayerGame)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="51">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        it &quot;creates a two computer game if user chooses game type &#39;3&#39;&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="52">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          constructor.create_new_game(&#39;3&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="53">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          expect(constructor.game).to be_a(TwoComputerGame)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="54">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="42">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      context &quot;when user correctly chooses a game type&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        it &quot;creates a classic game if user chooses game type &#39;1&#39;&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          constructor.create_new_game(&#39;1&#39;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          expect(constructor.game).to be_a(ClassicGame)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        it &quot;creates a two player game if user chooses game type &#39;2&#39;&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          constructor.create_new_game(&#39;2&#39;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          expect(constructor.game).to be_a(TwoPlayerGame)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        it &quot;creates a two computer game if user chooses game type &#39;3&#39;&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          constructor.create_new_game(&#39;3&#39;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          expect(constructor.game).to be_a(TwoComputerGame)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="never" data-hits="" data-linenumber="61">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="62">
           
           
           <code class="ruby">end</code>
